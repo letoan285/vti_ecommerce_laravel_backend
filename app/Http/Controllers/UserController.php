@@ -102,4 +102,13 @@ class UserController extends Controller
 
 
     }
+
+    protected function register(array $data)
+    {
+        return User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+        ]);
+    }
 }
