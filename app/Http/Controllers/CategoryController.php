@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -97,5 +98,10 @@ class CategoryController extends Controller
         $category = Category::find($id);
         $category->delete();
         return $category;
+    }
+    public function getProductsByCategoryId($id){
+        // $category = Category::find($id);
+        $products = Product::where('category_id', $id)->get();
+        return $products;
     }
 }

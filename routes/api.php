@@ -33,6 +33,7 @@ Route::post('users/login', 'UserController@userLogin');
 
 Route::get('categories', 'CategoryController@index');
 Route::get('categories/{id}', 'CategoryController@show');
+Route::get('categories/{id}/products', 'CategoryController@getProductsByCategoryId');
 Route::put('categories/{id}', 'CategoryController@update');
 Route::post('categories', 'CategoryController@store');
 Route::delete('categories/{id}', 'CategoryController@destroy');
