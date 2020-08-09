@@ -13,6 +13,7 @@
 - run: composer install --> to install php package
 - run: php artisan key:generate --> to generate app key
 - run: php artisan migrate -> to migrate database table
+-  run: php artisan serve --> to run project on port 8000
 
 
 ## About Laravel
