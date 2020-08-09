@@ -7,6 +7,14 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
+## Installation Guide
+- copy file .env from .env.example
+- create mysql database as name in env file, then enter username, password
+- run: composer install --> to install php package
+- run: php artisan key:generate --> to generate app key
+- run: php artisan migrate -> to migrate database table
+
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
