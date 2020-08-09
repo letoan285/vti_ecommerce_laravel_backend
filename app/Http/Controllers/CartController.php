@@ -82,4 +82,18 @@ class CartController extends Controller
     {
         //
     }
+    public function showCart($id){
+        return Cart::where('user_id', $id)->get();
+    }
+    public function addToCart(){
+        $products = $request->products;
+        foreach($products as $item){
+            $cart = new Cart();
+            $cart->user_id = $item['user_id'];
+            $cart->product_id = $item['product_id'];
+            $cart->quantity = $item['quantity'];
+            $cart->save();
+        }
+        return  Cart::where('user_id', $id)->get();
+    }
 }

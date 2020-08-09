@@ -102,4 +102,7 @@ class ProductController extends Controller
         $product->delete();
         return $product;
     }
+    public function getProducts(){
+        return Product::all();
+    }
 }

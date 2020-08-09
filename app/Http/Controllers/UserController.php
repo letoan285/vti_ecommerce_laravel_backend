@@ -35,7 +35,11 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = new User();
+        $user->email = $request->email;
+        $user->name = $request->username;
+        $user->password = $request->password;
+        $user->save();
     }
 
     /**
@@ -81,5 +85,21 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function userLogin(Request $request){
+        $email_input = $request->email;
+        $name = $request->username;
+        $password = $request->password;
+        $name = User::where('name', $name)->get();
+        if(!$name){
+            return response()->json(['status' => '400', 'message' => 'Username or password not matched']);
+        }
+        $user = User::where('password', $password)->first();
+        if(!$user){
+            return response()->json(['status' => '400', 'message' => 'Username or password not matched']);
+        }
+        return $user;
+
+
     }
 }
