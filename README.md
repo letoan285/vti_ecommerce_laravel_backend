@@ -8,6 +8,7 @@
 </p>
 
 ## Installation Guide
+- Installation conditions: php >=7.13, composer, mysql
 - copy file .env from .env.example
 - create mysql database as name in env file, then enter username, password
 - run: composer install --> to install php package
