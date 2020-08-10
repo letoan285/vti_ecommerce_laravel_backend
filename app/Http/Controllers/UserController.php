@@ -87,18 +87,19 @@ class UserController extends Controller
         //
     }
     public function userLogin(Request $request){
-        $email_input = $request->email;
-        $name = $request->username;
-        $password = $request->password;
-        $name = User::where('name', $name)->get();
-        if(!$name){
-            return response()->json(['status' => '400', 'message' => 'Username or password not matched']);
-        }
-        $user = User::where('password', $password)->first();
-        if(!$user){
-            return response()->json(['status' => '400', 'message' => 'Username or password not matched']);
-        }
-        return $user;
+        return 'login';
+        // $email_input = $request->email;
+        // $name = $request->username;
+        // $password = $request->password;
+        // $name = User::where('name', $name)->get();
+        // if(!$name){
+        //     return response()->json(['status' => '400', 'message' => 'Username or password not matched']);
+        // }
+        // $user = User::where('password', $password)->first();
+        // if(!$user){
+        //     return response()->json(['status' => '400', 'message' => 'Username or password not matched']);
+        // }
+        // return $user;
 
 
     }
