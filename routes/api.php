@@ -18,13 +18,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('products', 'ProductController@index');
-Route::get('products/{id}', 'ProductController@show');
-Route::put('products/{id}', 'ProductController@update');
-Route::post('products', 'ProductController@store');
-Route::delete('products/{id}', 'ProductController@destroy');
 
 
+Route::prefix('/products')->group(function(){
+    Route::get('/', 'ProductController@index');
+    Route::get('/{id}', 'ProductController@show');
+    Route::put('/{id}', 'ProductController@update');
+    Route::post('', 'ProductController@store');
+    Route::delete('/{id}', 'ProductController@destroy');
+});
 
 Route::get('categories', 'CategoryController@index');
 Route::get('categories/{id}', 'CategoryController@show');
