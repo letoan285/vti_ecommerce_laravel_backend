@@ -53,5 +53,5 @@ Route::prefix('/users')->group(function(){
     Route::post('/login', 'AuthController@login');
 });
 Route::get('/login', function(){
-    return response(['success' => 0, 'status' => 0, 'message' => 'Unauthorized Access !']);
+    return response(['success' => 0, 'status' => 0, 'message' => 'Unauthorized Access !'], 401);
 })->name('login');
