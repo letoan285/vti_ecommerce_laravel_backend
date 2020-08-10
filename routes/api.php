@@ -18,7 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('products', 'ProductController@index')->middleware('auth:api');
+Route::get('products', 'ProductController@index');
 Route::get('products/{id}', 'ProductController@show');
 Route::put('products/{id}', 'ProductController@update');
 Route::post('products', 'ProductController@store');
@@ -38,8 +38,8 @@ Route::get('carts/{id}', 'CartController@show');
 Route::put('carts/{id}', 'CartController@update');
 Route::post('carts', 'CartController@store');
 Route::delete('carts/{id}', 'CartController@destroy');
-Route::get('carts/list/{id}', 'CartController@showCart');
-Route::post('carts/add-to-cart', 'CartController@addToCart');
+Route::get('carts/list/{id}', 'CartController@showCart')->middleware('auth:api');
+Route::post('carts/add-to-cart', 'CartController@addToCart')->middleware('auth:api');
 
 Route::prefix('/users')->group(function(){
     Route::get('/', 'UserController@index')->middleware('auth:api');
